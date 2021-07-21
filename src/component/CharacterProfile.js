@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import { Card } from 'react-bootstrap';
 
 function CharacterProfile({ profile }) {
+	
+	const highlightStyle = {backgroundColor:"#e2e26d"}
+
 	return (
-		<Card className='col-md-4 ml-2 mr-2'>
-			<Card.Header>
-				<Card.Title>Profile</Card.Title>
+		<Card className='col-md-6 ml-5 mr-3'>
+			<Card.Header style={highlightStyle}>
+				<Card.Title >Profile</Card.Title>
 			</Card.Header>
 			<Card.Body>
 				{profile?.name && <p>Name: {profile.name}</p>}

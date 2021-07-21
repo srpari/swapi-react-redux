@@ -3,7 +3,6 @@ import './App.css';
 import { Provider } from 'react-redux';
 import CharacterList from './component/CharacterList';
 import CharacterProfile from './component/CharacterProfile';
-import CharacterWorld from './component/CharacterWorld';
 import CharacterMovies from './component/CharacterMovies';
 import store from './store';
 import SWLogo from "./Assets/Imgs/SWLogo.png";
@@ -32,10 +31,9 @@ function App() {
 				</div>
 				<br/>
 				<br/>
-				<div className='row'>
+				<div className='row text-center'>
 					<CharacterProfile />
 					<CharacterMovies />
-					<CharacterWorld />
 				</div>
 			</div>
 		</Provider>

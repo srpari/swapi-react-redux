@@ -10,11 +10,6 @@ export default (state = null, action) => {
 				...state,
 				profile: action.profile,
 			};
-		case 'SET_CHARACTER_WORLD':
-			return {
-				...state,
-				world: action.world,
-			};
 		case 'SET_CHARACTER_MOVIES':
 			return {
 				...state,

@@ -1,39 +1,56 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Card } from 'react-bootstrap';
 
 function CharacterMovies({ movies }) {
-	return (
-		<Card className='col-md-4'>
-			<Card.Header>
+
+ const [lastReleased, setLastReleased] = useState();
+
+ const highlightStyle = {backgroundColor:"#e2e26d"}
+
+useEffect(() => {
+	let maxNumb = [];
+	let numTitle = [];
+	
+	for (var y = 0; y < movies.length; y++) {
+	  numTitle.push({lastRelese: new Date(movies[y].release_date), movieTitle: movies[y].title});
+	  maxNumb.push(new Date(movies[y].release_date));
+	}	
+	setLastReleased(new Date(Math.max.apply(null, maxNumb)).toLocaleDateString());
+}, [movies])
+
+		
+
+ 	return (
+		<Card className='col-md-5'>
+			<Card.Header style={highlightStyle}>
 				<Card.Title>List of Movies</Card.Title>
+				{(lastReleased==="Invalid Date") ? " ": (<p>Year last movie released was: {lastReleased}</p>) }
 			</Card.Header>
-			<Card.Body>
+			<Card.Body>				
 				<ul>
-				{movies.map(movie => {
-					const date = new Date(movie.release_date).toLocaleDateString();
-					return (
-						<li key={movie.title}>
-							{movie.title} ({date})
-						</li>
-					);
+				{ movies.map((movie,index) => {
+					const date = new Date(movie.release_date).toLocaleDateString();	
+					if (lastReleased === date ) {
+						return (
+							<li style={highlightStyle} key={movie.title}>
+								{movie.title} ({date})
+							</li>
+						);
+					}
+					else {
+						return (
+							<li  key={movie.title}>
+								{movie.title} ({date})
+							</li>
+						);
+					}				
+					
 				})}
-				</ul>
+				</ul>			
+			  
 			</Card.Body>
 		</Card>
-		// <div id='character-movies' className='col-md-6'>
-		// 	<h1>Movies</h1>
-		// 	<ul>
-		// 		{movies.map(movie => {
-		// 			const date = new Date(movie.release_date).toLocaleDateString();
-		// 			return (
-		// 				<li key={movie.title}>
-		// 					{movie.title} ({date})
-		// 				</li>
-		// 			);
-		// 		})}
-		// 	</ul>
-		// </div>
 	);
 }
 

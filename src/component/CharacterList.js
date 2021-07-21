@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { connect } from 'react-redux';
-import { Card,Dropdown,Badge,Button } from 'react-bootstrap';
+// import { Card,Dropdown,Badge,Button } from 'react-bootstrap';
 import { setCurrentCharacter, getCharacterProfile } from '../actions/setCurrentCharacter';
 
 function CharacterList({ characters, setCharacter }) {	
@@ -66,7 +66,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => ({
 	setCharacter(id) {
-		console.log("-----"+id);
+		// console.log(id); 
 		return () => {
 			dispatch(setCurrentCharacter(id));
 			dispatch(getCharacterProfile(id));
