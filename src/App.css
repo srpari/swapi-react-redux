@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    padding: auto;
+    /* margin: auto; */
+}
+
+h1{
+    margin-bottom: 1%;
+    margin-Top: 1.5%;
+}
+
+.nameLink {
+    cursor: pointer;
+    background-color: #50504d;
+    color: #fff;
+    margin: 1.2%;
+    padding: 0.7%;
+}
+
+.logo-container {
+    display: "flex";
+    justify-content: "center";
+	align-items: "center";    
+    background-color: "#000";
+    padding-bottom: 2%;
+}
