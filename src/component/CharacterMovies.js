@@ -6,7 +6,9 @@ function CharacterMovies({ movies }) {
 
  const [lastReleased, setLastReleased] = useState();
 
- const highlightStyle = {backgroundColor:"#e2e26d"}
+ const highlightStyle = {backgroundColor:"#e2e26d"};
+ 
+ const highlightDiv = {backgroundColor:"#e9ecef"};
 
 useEffect(() => {
 	let maxNumb = [];
@@ -28,26 +30,26 @@ useEffect(() => {
 				{(lastReleased==="Invalid Date") ? " ": (<p>Year last movie released was: {lastReleased}</p>) }
 			</Card.Header>
 			<Card.Body>				
-				<ul>
+				{/* <ul> */}
 				{ movies.map((movie,index) => {
 					const date = new Date(movie.release_date).toLocaleDateString();	
 					if (lastReleased === date ) {
 						return (
-							<li style={highlightStyle} key={movie.title}>
+							<p style={highlightDiv} key={movie.title}>
 								{movie.title} ({date})
-							</li>
+							</p>
 						);
 					}
 					else {
 						return (
-							<li  key={movie.title}>
+							<p  key={movie.title}>
 								{movie.title} ({date})
-							</li>
+							</p>
 						);
 					}				
 					
 				})}
-				</ul>			
+				{/* </ul>			 */}
 			  
 			</Card.Body>
 		</Card>
